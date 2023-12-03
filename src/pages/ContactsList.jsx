@@ -1,17 +1,15 @@
 
 
-// import { ContactForm } from 'components/ContactForm/ContactForm';
-// import css from '../components/App/App.module.css';
-// import { Filter } from 'components/Filter/Filter';
-// import { ContactList } from 'components/ContactList/ContactList';
-
+import ContactForm from 'components/ContactForm/ContactForm';
+import Filter from 'components/Filter/Filter';
+import Contacts from 'components/Contacts/Contacts';
 
 const { useEffect } = require('react');
 const { useDispatch, useSelector } = require('react-redux');
 const { getContactsThunk } = require('redux/contactsThunk');
 
 
-const Contacts = () => {
+const ContactsList = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(state => state.contacts.items);
     const filtered = useSelector(state => state.filter);
@@ -25,13 +23,13 @@ const Contacts = () => {
       dispatch(getContactsThunk);
     }, [dispatch]);
     return (
-      <div className={css.container}>
+      <div>
         <ContactForm />
         <Filter />
-        <ContactList listContact={filterContact()} />
+        <Contacts listContact={filterContact()} />
       </div>
     );
   };
   
-  export default Contacts;
+  export default ContactsList;
   

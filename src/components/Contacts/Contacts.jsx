@@ -6,9 +6,14 @@ import s from './Contacts.module.css';
 
 const Contacts = ({ listContact }) => {
   const dispatch = useDispatch();
-  return listContact.map(contact => {
-    return (
-      <ul className={s.list} key={contact.id}>
+
+  if (!Array.isArray(listContact) || listContact.length === 0) {
+    return <p>No contacts found</p>;
+  }
+
+  return (
+    <ul className={s.list}>
+      {listContact.map(contact => (
         <li className={s.contact} key={contact.id}>
           {contact.name} - {contact.phone}
           <button
@@ -20,9 +25,11 @@ const Contacts = ({ listContact }) => {
             Delete
           </button>
         </li>
-      </ul>
-    );
-  });
+      ))}
+    </ul>
+  );
 };
+
+
 
 export default Contacts;

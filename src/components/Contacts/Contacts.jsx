@@ -8,7 +8,7 @@ const Contacts = ({ listContact }) => {
   const dispatch = useDispatch();
 
   if (!Array.isArray(listContact) || listContact.length === 0) {
-    return <p>No contacts found</p>; // Możesz zwrócić dowolny komunikat o braku kontaktów
+    return <p>No contacts found</p>;
   }
 
   return (

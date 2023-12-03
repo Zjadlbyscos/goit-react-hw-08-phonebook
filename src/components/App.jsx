@@ -8,11 +8,14 @@ import { Login } from 'pages/Login';
 import { SignUp } from 'pages/SignUp';
 import { Navigation } from './Navigation/Navigation';
 import { PrivateRoute } from './Private/PrivateRoute';
-
-import style from './App.module.css';
+import { refreshUserThunk } from 'redux/User/userThunk';
+// import style from './App.module.css';
 
 const App = () => {
-  //----><---
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
   return (
     <>
       <Navigation />

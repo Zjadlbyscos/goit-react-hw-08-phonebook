@@ -1,30 +1,30 @@
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import Contacts from './Contacts/Contacts';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
+import { PublicRoute } from './Public/PublicRoute';
+import { Login } from 'pages/Login';
+import { SignUp } from 'pages/SignUp';
+import { Navigation } from './Navigation/Navigation';
+import { PrivateRoute } from './Private/PrivateRoute';
 
 import style from './App.module.css';
 
 const App = () => {
-  const filtered = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts.items);
-
-  const filterContact = e => {
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filtered.toLowerCase())
-    );
-    return filteredContacts;
-  };
-
   return (
-    <div className={style.form}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-
-      <Filter></Filter>
-      <Contacts listContact={filterContact()} />
-    </div>
+    <>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<PublicRoute />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route path="/" element={<PrivateRoute />}>
+          <Route path="/contacts" element={<Contacts />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

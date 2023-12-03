@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { qwery } from 'redux/sliceFilter';
+import { filterContact } from 'redux/sliceFilter';
 
 import s from './Filter.module.css';
 
@@ -9,7 +9,7 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = evt => {
-    dispatch(qwery(evt.currentTarget.value));
+    dispatch( filterContact(evt.currentTarget.value));
   };
 
   return (

@@ -1,22 +1,29 @@
 import axios from 'axios';
-const BASEURL = 'https://656851219927836bd974879f.mockapi.io';
+
+export const backendAPI = axios.create({
+  baseURL: 'https://connections-api.herokuapp.com/',
+});
+
 export const contactAPI = axios.create({
-  BaseURL: 'https://656851219927836bd974879f.mockapi.io',
+  baseURL: 'https://connections-api.herokuapp.com',
 });
 
 export const getContacts = async () => {
-  const { data } = await contactAPI.get(`${BASEURL}/contacts`);
+  const { data } = await backendAPI.get('/contacts');
   return data;
 };
 
 export const addContacts = async contact => {
-  const { data } = await contactAPI.post(`${BASEURL}/contacts`, contact);
+  const { data } = await backendAPI.post('contacts', contact);
   return data;
 };
 
 export const delContacts = async id => {
-  const { data } = await contactAPI.delete(`${BASEURL}/contacts/${id}`);
+  const { data } = await backendAPI.delete(`/contacts/${id}`);
   return data;
 };
 
-export const selectContact = state => state.contacts.items;
+export const updContacts = async id => {
+  const { data } = await backendAPI.patch(`/contacts/${id}`);
+  return data;
+};

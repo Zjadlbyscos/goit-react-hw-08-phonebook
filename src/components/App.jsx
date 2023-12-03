@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Contacts from './Contacts/Contacts';
+import ContactsList from './Contacts/Contacts';
 import { PublicRoute } from './Public/PublicRoute';
 import { Login } from 'pages/Login';
 import { SignUp } from 'pages/SignUp';
@@ -12,6 +12,7 @@ import { PrivateRoute } from './Private/PrivateRoute';
 import style from './App.module.css';
 
 const App = () => {
+  //----><---
   return (
     <>
       <Navigation />
@@ -21,7 +22,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
         </Route>
         <Route path="/" element={<PrivateRoute />}>
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/contacts" element={<ContactsList />} />
         </Route>
       </Routes>
     </>

@@ -18,3 +18,5 @@ export const delContacts = async id => {
   const { data } = await contactAPI.delete(`${BASEURL}/contacts/${id}`);
   return data;
 };
+
+export const selectContact = state => state.contacts.items;

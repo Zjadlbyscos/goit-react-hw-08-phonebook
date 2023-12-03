@@ -36,3 +36,9 @@ export const delContactsThunk = createAsyncThunk(
     }
   }
 );
+
+export const selectUser = state => state.auth.user;
+
+export const selectToken = state => state.auth.token;
+
+export const selectContact = state => state.contacts.items;

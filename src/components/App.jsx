@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import ContactsList from './Contacts/Contacts';
 import { PublicRoute } from './Public/PublicRoute';
-import { Login } from 'pages/Login';
+import Login from 'pages/Login';
 import { SignUp } from 'pages/SignUp';
 import { Navigation } from './Navigation/Navigation';
 import { PrivateRoute } from './Private/PrivateRoute';

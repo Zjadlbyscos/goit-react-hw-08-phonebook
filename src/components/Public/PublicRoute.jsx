@@ -1,6 +1,13 @@
-export const PublicRoute = () => {
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/constants';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-    return(
-        <p>Public Route </p>
-    )
-}
+export const PublicRoute = () => {
+  const token = useSelector(selectToken);
+  const location = useLocation();
+  return token ? (
+    <Navigate to={location.state?.from ?? '/contacts'} />
+  ) : (
+    <Outlet />
+  );
+};

@@ -1,6 +1,8 @@
-export const PrivateRoute = () => {
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/constants';
+import { Outlet, Navigate } from 'react-router-dom';
 
-    return(
-        <p>Private Route </p>
-    )
-}
+export const PrivateRoute = () => {
+  const token = useSelector(selectToken);
+  return token ? <Outlet /> : <Navigate to={'/login'} />;
+};

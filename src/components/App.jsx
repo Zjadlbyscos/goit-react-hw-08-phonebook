@@ -9,7 +9,8 @@ import { SignUp } from 'pages/SignUp';
 import { Navigation } from './Navigation/Navigation';
 import { PrivateRoute } from './Private/PrivateRoute';
 import { refreshUserThunk } from 'redux/User/userThunk';
-// import style from './App.module.css';
+
+
 
 const App = () => {
   const dispatch = useDispatch();

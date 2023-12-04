@@ -4,27 +4,29 @@ import { useSelector } from 'react-redux';
 import InfoUser from 'components/InfoUser/InfoUser';
 import { selectToken, selectUser } from 'redux/constants';
 
+import s from './Navigation.module.css'
+
 export const Navigation = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken) ?? '';
-  console.log(user);
+
   return (
     <>
-      <nav>
-        <div>
-          <Link to="/goit-react-hw-08-phonebook/contacts">Phonebook</Link>
+      <nav  className={s.navbar}>
+        <div  className={s.container}>
+          <Link to="/login"  className={s.logo}>Phonebook</Link>
           {!user && (
-            <ul>
+            <ul  className={s.links}>
               {token && (
                 <li>
-                  <Link to="/contacts">Contacts</Link>
+                  <Link to="/contacts" className={s.link}>Contacts</Link>
                 </li>
               )}
               <li>
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup" className={s.link}>Sign Up</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/login" className={s.link}>Login</Link>
               </li>
             </ul>
           )}

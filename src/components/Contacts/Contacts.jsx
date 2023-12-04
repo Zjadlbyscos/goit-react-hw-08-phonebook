@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { delContactsThunk } from 'redux/constants';
+import PropTypes from 'prop-types';
 import React from 'react';
+import { delContactsThunk } from 'redux/constants';
+
 
 import s from './Contacts.module.css';
 
@@ -33,3 +35,7 @@ const Contacts = ({ listContact }) => {
 
 
 export default Contacts;
+
+Contacts.propTypes = {
+  listContact: PropTypes.array.isRequired,
+};

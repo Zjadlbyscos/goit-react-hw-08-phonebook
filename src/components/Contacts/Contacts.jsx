@@ -9,9 +9,9 @@ import s from './Contacts.module.css';
 const Contacts = ({ listContact }) => {
   const dispatch = useDispatch();
 
-  if (!Array.isArray(listContact) || listContact.length === 0) {
-    return <p>No contacts found</p>;
-  }
+  // if (!listContact || !Array.isArray(listContact) || listContact.length === 0) {
+  //   return <p>No contacts found</p>;
+  // }
 
   return (
     <ul className={s.list}>
@@ -37,5 +37,5 @@ const Contacts = ({ listContact }) => {
 export default Contacts;
 
 Contacts.propTypes = {
-  listContact: PropTypes.array.isRequired,
+  listContact: PropTypes.array,
 };

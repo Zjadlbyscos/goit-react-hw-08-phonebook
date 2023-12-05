@@ -46,7 +46,7 @@ export const SignUp = () => {
         type="text"
         placeholder="Enter your name"
       />
-      <small>We'll never share your email with anyone else.</small>
+      
 
       <label>Email address</label>
       <input
@@ -56,7 +56,7 @@ export const SignUp = () => {
         type="email"
         placeholder="Enter email"
       />
-      <small>We'll never share your email with anyone else.</small>
+  
 
       <label>Password</label>
       <input

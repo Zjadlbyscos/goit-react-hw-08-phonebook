@@ -9,9 +9,10 @@ import s from './Contacts.module.css';
 const Contacts = ({ listContact }) => {
   const dispatch = useDispatch();
 
-  // if (!listContact || !Array.isArray(listContact) || listContact.length === 0) {
-  //   return <p>No contacts found</p>;
-  // }
+  if (!listContact || !Array.isArray(listContact) || listContact.length === 0) {
+    return <p>No contacts found</p>;
+  }
+  
   return listContact.map(contact => {
   return (
     <ul className={s.list}>

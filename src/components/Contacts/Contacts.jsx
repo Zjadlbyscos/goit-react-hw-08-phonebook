@@ -12,10 +12,10 @@ const Contacts = ({ listContact }) => {
   // if (!listContact || !Array.isArray(listContact) || listContact.length === 0) {
   //   return <p>No contacts found</p>;
   // }
-
+  return listContact.map(contact => {
   return (
     <ul className={s.list}>
-      {listContact.map(contact => (
+     
         <li className={s.contact} key={contact.id}>
           {contact.name} - {contact.phone}
           <button
@@ -27,10 +27,11 @@ const Contacts = ({ listContact }) => {
             Delete
           </button>
         </li>
-      ))}
+      
     </ul>
   );
-};
+});
+}
 
 
 
